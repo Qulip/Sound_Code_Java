@@ -1,0 +1,90 @@
+#title{
+    margin: 5% 10%;
+  }
+
+  * {
+  margin: 0px;
+  padding: 0px;
+  text-decoration: none;
+  font-family:sans-serif;
+  }
+
+  body {
+  background-image:#34495e;
+  }
+
+  .joinForm {
+  position:absolute;
+  width:400px;
+  height:750px;
+  padding: 30px, 20px;
+  background-color:gainsboro;
+  text-align:center;
+  top:45%;
+  left:70%;
+  transform: translate(-50%,-50%);
+  border-radius: 15px;
+  }
+
+  .joinForm h2 {
+  text-align: center;
+  margin: 30px;
+  }
+
+  .test_text {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .textForm {
+  border-bottom: 2px solid #adadad;
+  margin: 30px;
+  padding: 10px 10px;
+  }
+
+  .reg {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+  }
+
+  .btn {
+  position:relative;
+  left:40%;
+  transform: translateX(-50%);
+  margin-top: 40px;
+  width:80%;
+  height:40px;
+  background: linear-gradient(125deg,#81ecec,#6c5ce7,#81ecec);
+  background-position: left;
+  background-size: 200%;
+  color:white;
+  font-weight: bold;
+  border:none;
+  cursor:pointer;
+  transition: 0.4s;
+  display:inline;
+  }
+
+  .btn:hover {
+  background-position: right;
+  }
+
+  .img_png{
+    width: 100px;
+    height : 100px;  
+  }
+  .btn_mic{
+    border : 0ch;
+    border-radius: 50px;
+    background-color: gainsboro;
+  }
+  .btn_mic:hover{
+
+    background-color: #ffffff;
+  }

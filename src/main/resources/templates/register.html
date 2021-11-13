@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>SoundCode</title>
+        <link rel="stylesheet"  type="text/css" href="styles/register.css">
+    </head>
+    <body>
+        <div id="background">
+            <div id="title"><img src="image/soundcode.png"></div>
+            <div id="login">
+                <form action="#" method="POST" class="joinForm">                                                          
+                    <h2>회원가입</h2>
+                    <div class="textForm">
+                      <input name="loginId" type="text" class="reg" placeholder="아이디">
+                      </input>
+                    </div>
+                    <div class="textForm">
+                      <input name="loginPw" type="password" class="reg" placeholder="비밀번호">
+                    </div>
+                     <div class="textForm">
+                      <input name="loginPwConfirm" type="password" class="reg" placeholder="비밀번호 확인">
+                    </div>
+                    <div class="textForm">
+                      <input name="name" type="text" class="reg" placeholder="이름">
+                    </div>
+                    <div class="textForm">
+                      <input name="phoneNumber" type="number" class="reg" placeholder="전화번호">
+                    </div>
+
+                    <div class="test_text">녹음을 위한 문자열 을 읽어 주세요!</p>문자열 : <span id="text">****</span></div>
+                    
+                    <button type="button" class="btn_mic" id="recordButton"><img class="img_png" src="image/mic_on.png"></button>
+                    <button type="button" class="btn_mic" id="stopButton"><img class="img_png" src="image/mic_off.png"></button>
+                    <input type="submit" class="btn" value="회원가입"/>
+                  </form>
+            </div>
+        </div>
+    </body>
+</html>
