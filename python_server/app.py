@@ -1,7 +1,5 @@
-import os
 from flask import Flask
-from flask_cors import CORS
-from execute import *
+from code.execute import *
 from flask_restx import Resource, Api
 
 

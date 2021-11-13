@@ -1,8 +1,8 @@
 # -*- coding: utf8 -*-
 
 # print(sys.path)
-from stt import *
-from recognize import *
+from code.stt import *
+from code.recognize import *
 
 # 1
 # 어떤 key값으로 할건지 (일정하지 않다면 어떻게 ?)
