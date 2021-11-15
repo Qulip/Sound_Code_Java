@@ -1,6 +1,8 @@
 package com.example.soundCode.domain;
 
 import com.example.soundCode.domain.util.RestApi;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -20,21 +22,24 @@ public class PythonModelApi {
     }
 
     @GetMapping("test")
-    public String test(@RequestParam("name") String name) throws UnsupportedEncodingException {
+    public ResponseEntity<Dto> test(@RequestParam("name") String name) throws UnsupportedEncodingException {
         String names = URLEncoder.encode(name, "UTF-8");
         System.out.println("names = " + names);
         String temp = restApi.get("http://localhost:5000/test/" + names);
-        StringBuilder sb = new StringBuilder(temp);
+        StringBuilder sb = new StringBuilder(temp.replace("\n", "").replace(" ", ""));
+
         System.out.println("temp = " + temp);
         sb.deleteCharAt(0);
         sb.deleteCharAt(sb.length() - 2);
-
         System.out.println("sb.toString() = " + sb.toString());
 
         String[] split = sb.toString().split(",");
+        for (String s : split) {
+            System.out.println("s = " + s);
+        }
+        Dto dto = new Dto(split[0], split[1], split[2].replace("]",""));
 
-
-        return split[0] + "<br>목소리 유사성 : " + split[1] + "<br>텍스트 유사성 : " + split[2];
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
     @PostMapping("test")

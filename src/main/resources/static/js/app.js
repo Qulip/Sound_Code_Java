@@ -12,12 +12,12 @@ var audioContext //audio context to help us record
 var recordButton = document.getElementById("recordButton");
 var stopButton = document.getElementById("stopButton");
 var pauseButton = document.getElementById("pauseButton");
-
+var submitButton = document.getElementById("submitButton");
 //add events to those 2 buttons
 recordButton.addEventListener("click", startRecording);
 stopButton.addEventListener("click", stopRecording);
 pauseButton.addEventListener("click", pauseRecording);
-// submitButton.addEventListener("click", submitRecording);
+submitButton.addEventListener("click", submitRecording);
 function startRecording() {
 	console.log("recordButton clicked");
 
@@ -187,21 +187,27 @@ function createDownloadLink(blob) {
 
 }
 
-function submitRecording() {
-	var submit = document.createElement('button');
-	submit.innerHTML = "Submit";
+async function submitRecording() {
 	var userId = "chang";
+	const $pass = document.getElementById("pass");
+	const $recognize = document.getElementById("recognize");
+	const $stt = document.getElementById("stt");
 
-	submit.addEventListener("click", async function (event) {
-		const response2 = await fetch(`test?name=${userId}`, {
+	// submitButton.addEventListener("click", async function (event) {
+		await fetch(`test?name=${userId}`, {
 			method: 'GET',
 			headers: {
-				// 'content-type': 'application/json'
+				'content-type': 'application/json'
 			}
-		}).then(data => console.log(data));
-	});
-	alert(":TLqk");
-	console.log(response2);
+		}).then(data => data.json())
+			.then(data => {
+				console.log(data);
+				$pass.innerHTML = `결과 : ${data.pass}`;
+				$recognize.innerHTML = `성문 유사성 : ${data.recognize}`;
+				$stt.innerHTML = `텍스트 유사성 : ${data.stt}`;
+		});
+	// });
+
 
 	// window.location.href = '/';
 }
