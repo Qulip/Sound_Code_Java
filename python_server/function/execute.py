@@ -1,8 +1,8 @@
 # -*- coding: utf8 -*-
 
 # print(sys.path)
-from code.stt import *
-from code.recognize import *
+from function.stt import *
+from function.recognize import *
 
 # 1
 # 어떤 key값으로 할건지 (일정하지 않다면 어떻게 ?)
@@ -26,7 +26,7 @@ from code.recognize import *
 # 보관은 어디에?
 
 def execute(wav_file_name):
-    wav_file = "D:\\코딩\\개발코드\\졸프음성\\2semester\\data\\" + wav_file_name + ".wav"
+    wav_file = "D:\\코딩\\자바\\soundCode\\python_server\\data\\" + wav_file_name + ".wav"
     reg_flag, reg_similarity = execute_recognize(wav_file)
     stt_flag, stt_similarity = execute_stt(wav_file)
     list = []
@@ -42,4 +42,4 @@ def execute(wav_file_name):
     return list
 
 
-print(execute("D__코딩_자바_soundCode_data_changJun (2)"))
+# print(execute("D__코딩_자바_soundCode_data_changJun (2)"))

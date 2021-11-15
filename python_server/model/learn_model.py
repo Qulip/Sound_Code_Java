@@ -9,7 +9,7 @@ import pandas as pd
 import os
 
 from model.generate_data import *
-from code.functions import make_data
+from function.functions import make_data
 
 
 chang = load_wave_generator("D:/코딩/자바/soundCode/python_server/data/sound_data/0")

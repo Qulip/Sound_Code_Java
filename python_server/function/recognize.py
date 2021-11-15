@@ -4,11 +4,12 @@
 # from keras.models import load_model
 import tensorflow as tf
 import librosa
-from code.functions import *
-
+from function.functions import *
+import os
 print(tf.__version__)
+print(os.getcwd())
 #  static
-model = tf.keras.models.load_model('2학기화자인식모델_최창준.h5')
+model = tf.keras.models.load_model('model/2학기화자인식모델_최창준.h5')
 rating_scale = 0.01
 right_standard = 0.8
 wrong_standard = 0.2

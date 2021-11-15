@@ -1,6 +1,6 @@
 import tensorflow as tf
 from model.generate_data import load_wave_generator_file
-from code.functions import make_data
+from function.functions import make_data
 
 print(tf.__version__)
 
