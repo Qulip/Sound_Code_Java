@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+}
+a {
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+img {
+    width: 40rem;
+    height: 30rem;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+}
+.nav-item {
+    padding: 15px;
+    cursor: pointer;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 70px;
+    margin: 0;
+    padding: 0;
+    bottom: 0;
+    background-color: #337ab7;
+    list-style-type: none;
+    vertical-align: middle;
+    justify-content: center;
+}
+
+.main_logo {
+    margin: 5rem;
+    align-self: center;
+}

@@ -17,7 +17,7 @@ var pauseButton = document.getElementById("pauseButton");
 recordButton.addEventListener("click", startRecording);
 stopButton.addEventListener("click", stopRecording);
 pauseButton.addEventListener("click", pauseRecording);
-
+// submitButton.addEventListener("click", submitRecording);
 function startRecording() {
 	console.log("recordButton clicked");
 
@@ -123,7 +123,7 @@ function createDownloadLink(blob) {
 	var au = document.createElement('audio');
 	var li = document.createElement('li');
 	var link = document.createElement('a');
-	var path = "D:\\코딩\\자바\\soundCode\\data\\";
+	// var path = "D:\\코딩\\자바\\soundCode\\data\\";
 	//name of .wav file to use during upload and download (without extendion)
 	var filename = "changJun";
 
@@ -133,18 +133,18 @@ function createDownloadLink(blob) {
 
 	//save to disk link
 	link.href = url;
-	link.download = path + filename+".wav"; //download forces the browser to donwload the file using the  filename
+	link.download = filename + ".wav"; //download forces the browser to donwload the file using the  filename
 	link.innerHTML = "Save to disk";
 
 	//add the new audio element to li
 	li.appendChild(au);
-	
+
 	//add the filename to the li
-	li.appendChild(document.createTextNode(filename+".wav "))
+	li.appendChild(document.createTextNode(filename + ".wav "))
 
 	//add the save to disk link to li
 	li.appendChild(link);
-	
+
 	//upload link
 	var upload = document.createElement('button');
 	// upload.href="test";
@@ -166,6 +166,7 @@ function createDownloadLink(blob) {
 		});
 
 		console.log(response.json());
+		alert("upload 완료!");
 
 		// var xhr=new XMLHttpRequest();
 		// xhr.onload=function(e) {
@@ -178,9 +179,29 @@ function createDownloadLink(blob) {
 		// xhr.open("POST","upload.php",true);
 		// xhr.send(fd);
 	});
-	li.appendChild(document.createTextNode (" "))//add a space in between
+	li.appendChild(document.createTextNode(" "))//add a space in between
 	li.appendChild(upload)//add the upload link to li
 
 	//add the li element to the ol
 	recordingsList.appendChild(li);
+
+}
+
+function submitRecording() {
+	var submit = document.createElement('button');
+	submit.innerHTML = "Submit";
+	var userId = "chang";
+
+	submit.addEventListener("click", async function (event) {
+		const response2 = await fetch(`test?name=${userId}`, {
+			method: 'GET',
+			headers: {
+				// 'content-type': 'application/json'
+			}
+		}).then(data => console.log(data));
+	});
+	alert(":TLqk");
+	console.log(response2);
+
+	// window.location.href = '/';
 }

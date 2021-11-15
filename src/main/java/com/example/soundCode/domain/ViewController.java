@@ -20,4 +20,8 @@ public class ViewController {
         return "register";
     }
 
+    @GetMapping("security")
+    public String security() {
+        return "security";
+    }
 }

@@ -22,7 +22,7 @@ public class PythonModelApi {
     @GetMapping("test")
     public String test(@RequestParam("name") String name) throws UnsupportedEncodingException {
         String names = URLEncoder.encode(name, "UTF-8");
-        System.out.println("이거 뭐임?");
+        System.out.println("names = " + names);
         String temp = restApi.get("http://localhost:5000/test/" + names);
         StringBuilder sb = new StringBuilder(temp);
         System.out.println("temp = " + temp);
@@ -34,13 +34,13 @@ public class PythonModelApi {
         String[] split = sb.toString().split(",");
 
 
-        return split[0];
+        return split[0] + "<br>목소리 유사성 : " + split[1] + "<br>텍스트 유사성 : " + split[2];
     }
 
     @PostMapping("test")
     public String test2(@RequestParam("wav") MultipartFile file) throws IOException {
-
-        String filePath = "D:\\코딩\\개발코드\\졸프음성\\2semester\\data\\" + "chang" + ".wav";
+//D:\코딩\자바\soundCode\python_server\data
+        String filePath = "D:\\코딩\\자바\\soundCode\\python_server\\data\\" + "chang" + ".wav";
         File dest = new File(filePath);
         file.transferTo(dest);
 

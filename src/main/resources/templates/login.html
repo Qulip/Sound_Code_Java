@@ -6,22 +6,36 @@
         <link rel="stylesheet" type="text/css" href="styles/login.css">
     </head>
     <body>
-        <div id="background">
-            <div id="title">
-                <img src="image/soundcode.png"></div>
-            <div id="login">
-                <form action="/" method="GET" class="joinForm">
-                    <h2>로그인</h2>
-                    <div class="textForm">
-                      <input name="loginId" type="text" class="reg" placeholder="아이디">
-                      </input>
-                    </div>
-                    <div class="textForm">
-                      <input name="loginPw" type="password" class="reg" placeholder="비밀번호">
-                    </div>
-                    <input type="submit" class="btn" value="로그인"/>
-                  </form>
+    <div class="container">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/register">회원가입</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login">로그인</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/security">2차인증</a>
+            </li>
+        </ul>
+        <div class="main_page">
+            <div class="main_logo">
+                <img src="image/soundcode.png">
             </div>
+
+            <form method="POST" class="joinForm">
+                <h2>로그인</h2>
+                <div class="textForm">
+                    <input name="loginId" type="text" class="reg" placeholder="아이디" required>
+                    </input>
+                </div>
+                <div class="textForm">
+                    <input name="loginPw" type="password" class="reg" placeholder="비밀번호" required>
+                </div>
+                <input type="submit" class="btn" value="로그인"/>
+            </form>
         </div>
+
+    </div>
     </body>
 </html>

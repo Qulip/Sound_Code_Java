@@ -2,6 +2,7 @@ package com.example.soundCode.domain.member;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -27,11 +28,11 @@ public class MemberApi {
         if (loginPw.equals(loginPwConfirm)) {
             memberService.save(loginId, loginPw, name, phoneNumber);
             model.addAttribute("status", "success");
-            return "test";
+            return "testRegister";
         }
 
         model.addAttribute("status", "fail");
-        return "test";
+        return "testRegister";
     }
 
 
@@ -39,12 +40,13 @@ public class MemberApi {
     public String test(HttpServletRequest httpServletRequest, HttpSession httpSession, Model model) {
         String id = httpServletRequest.getParameter("loginId");
         String pwd = httpServletRequest.getParameter("loginPw");
+        model.addAttribute("temp", "temp");
         model.addAttribute("userId", id);
         if (memberService.login(id, pwd)) {
             httpSession.setAttribute("userId", id);
-            return "test";
+            return "testLogin";
         }
 
-        return "login";
+        return "testLogin";
     }
 }
