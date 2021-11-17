@@ -26,8 +26,7 @@
             <form method="POST" class="joinForm">
                 <h2>회원가입</h2>
                 <div class="textForm">
-                    <input name="loginId" type="text" class="reg" placeholder="아이디">
-                    </input>
+                    <input name="loginId" type="text" class="reg" placeholder="아이디" value="chang">
                 </div>
                 <div class="textForm">
                     <input name="loginPw" type="password" class="reg" placeholder="비밀번호">
@@ -42,14 +41,26 @@
                     <input name="phoneNumber" type="number" class="reg" placeholder="전화번호">
                 </div>
 
-                <div class="test_text">녹음을 위한 문자열 을 읽어 주세요!</p>문자열 : <span id="text">****</span></div>
+                <div class="test_text">녹음을 위한 문자열 을 읽어 주세요!<br>
+                    문자열 : <span id="text">****</span></div>
+                <div class="record">
+                    <div id="controls">
+                        <button id="recordButton">Record</button>
+                        <button id="pauseButton" disabled>Pause</button>
+                        <button id="stopButton" disabled>Stop</button>
+                    </div>
+                    <div id="formats">Record 버튼을 누르고 위 텍스트를 녹음한 뒤 stop을 누르세요!</div>
+                    <ol id="recordingsList"></ol>
+                    <!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
+                    <!--                <button type="button" id="submitButton" onclick="location.href='http://localhost:8080/test?name=chang'">submit</button>-->
 
-                <button type="button" class="btn_mic" id="recordButton"><img class="img_png" src="image/mic_on.png"></button>
-                <button type="button" class="btn_mic" id="stopButton"><img class="img_png" src="image/mic_off.png"></button>
-                <input type="submit" class="btn" value="회원가입"/>
+                </div>
+                <input type="submit" class="btn" id="submitButton" value="회원가입"/>
             </form>
         </div>
 
     </div>
+    <script src="js/recorder.js"></script>
+    <script src="js/appRegister.js"></script>
     </body>
 </html>

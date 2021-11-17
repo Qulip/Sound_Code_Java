@@ -125,7 +125,7 @@ function createDownloadLink(blob) {
 	var link = document.createElement('a');
 	// var path = "D:\\코딩\\자바\\soundCode\\data\\";
 	//name of .wav file to use during upload and download (without extendion)
-	var filename = "changJun";
+	var filename = "User";
 
 	//add controls to the <audio> element
 	au.controls = true;
