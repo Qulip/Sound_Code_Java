@@ -155,7 +155,7 @@ function createDownloadLink(blob) {
 
 
     upload.addEventListener("click", async function (event) {
-        const response = await fetch("test", {
+        const response = await fetch("register/record", {
             method: 'POST',
             headers: {
                 // 'content-type': 'multipart/form-data'
@@ -192,7 +192,7 @@ async function submitRecording() {
     const $stt = document.getElementById("stt");
 
     // submitButton.addEventListener("click", async function (event) {
-    await fetch(`test?name=${userId}`, {
+    await fetch(`authenticate?name=${userId}`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json'

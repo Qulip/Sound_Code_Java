@@ -7,11 +7,16 @@ def install(name):
 install("speechRecognition")
 import speech_recognition as sr
 from difflib import SequenceMatcher
-
+import random
 #  static
 r = sr.Recognizer()
-key = "안녕하세요 감자 고구마 테스트 입니다"
+keySet = ["안녕하세요 2차 인증 테스트 입니다",
+          "파이썬과 자바",
+          "애플과 갤럭시",
+          "노트북 컴퓨터 키보드 마우스",
+          "책상에서 공부하는 학생"]
 rating_scale = 0.8
+
 
 
 def recognize_kor(wav_file):
@@ -34,5 +39,11 @@ def execute_stt(wav_file):
     return calculate_result(recognize_kor(wav_file))
 
 
+def choice_key():
+    return random.choice(keySet)
 
+def show_key_index():
+    global key
+    key = choice_key()
+    return keySet.index(key)
 

@@ -25,7 +25,7 @@ from function.recognize import *
 # 6
 # 보관은 어디에?
 
-def execute(wav_file_name):
+def secondary_authenticate(wav_file_name):
     wav_file = "D:\\코딩\\자바\\soundCode\\python_server\\data\\" + wav_file_name + ".wav"
     reg_flag, reg_similarity = execute_recognize(wav_file)
     stt_flag, stt_similarity = execute_stt(wav_file)
@@ -33,13 +33,18 @@ def execute(wav_file_name):
 
     if reg_flag and stt_flag:
         list.append(True)
-        list.append(reg_similarity)
-        list.append(stt_similarity)
+        list.append(round(reg_similarity, 4) * 100)
+        list.append(round(stt_similarity, 4) * 100)
         return list
     list.append(False)
-    list.append(reg_similarity)
-    list.append(stt_similarity)
+    list.append(round(reg_similarity, 4) * 100)
+    list.append(round(stt_similarity, 4) * 100)
     return list
+
+def show_key():
+    return show_key_index()
+
+
 
 
 # print(execute("D__코딩_자바_soundCode_data_changJun (2)"))

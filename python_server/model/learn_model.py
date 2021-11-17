@@ -7,14 +7,28 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import os
-
+from imblearn.over_sampling import *
 from model.generate_data import *
 from function.functions import make_data
 
 
 chang = load_wave_generator("D:/코딩/자바/soundCode/python_server/data/sound_data/0")
 jae = load_wave_generator("D:/코딩/자바/soundCode/python_server/data/sound_data/1")
-yu = load_wave_generator("D:/코딩/자바/soundCode/python_server/data/sound_data/2")
+# yu = load_wave_generator("D:/코딩/자바/soundCode/python_server/data/sound_data/2")
+yu = load_wave_generator_file("일권.wav")
+
+
+chang_label = np.full(len(chang), 1)
+jae_label = np.full(len(jae), 1)
+yu_label = np.full(len(yu), 0)
+
+x_train = np.concatenate((chang, jae, yu), axis = 0)
+y_train = np.concatenate((yu_label, jae_label, chang_label), axis = 0)
+
+print(len(chang) + len(jae))
+
+
+x_train, y_train = SMOTE().fit_resample(x_train, y_train)
 
 chang_gru = make_data(chang)
 jae_gru = make_data(jae)
@@ -29,6 +43,10 @@ y_train = np.concatenate((yu_label, jae_label, chang_label), axis = 0)
 
 print(x_train.shape)
 print(y_train.shape)
+
+
+
+
 
 train = x_train
 train_label = y_train

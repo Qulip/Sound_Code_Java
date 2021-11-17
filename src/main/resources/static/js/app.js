@@ -157,7 +157,7 @@ function createDownloadLink(blob) {
 
 
 	upload.addEventListener("click", async function (event) {
-		const response = await fetch("test", {
+		const response = await fetch("security/record", {
 			method: 'POST',
 			headers: {
 				// 'content-type': 'multipart/form-data'
@@ -188,13 +188,13 @@ function createDownloadLink(blob) {
 }
 
 async function submitRecording() {
-	var userId = "chang";
+	var userId = "security";
 	const $pass = document.getElementById("pass");
 	const $recognize = document.getElementById("recognize");
 	const $stt = document.getElementById("stt");
 
 	// submitButton.addEventListener("click", async function (event) {
-		await fetch(`test?name=${userId}`, {
+		await fetch(`authenticate?name=${userId}`, {
 			method: 'GET',
 			headers: {
 				'content-type': 'application/json'
@@ -203,8 +203,8 @@ async function submitRecording() {
 			.then(data => {
 				console.log(data);
 				$pass.innerHTML = `결과 : ${data.pass}`;
-				$recognize.innerHTML = `성문 유사성 : ${data.recognize}`;
-				$stt.innerHTML = `텍스트 유사성 : ${data.stt}`;
+				$recognize.innerHTML = `성문 유사성 : ${data.recognize}%`;
+				$stt.innerHTML = `텍스트 유사성 : ${data.stt}%`;
 		});
 	// });
 
