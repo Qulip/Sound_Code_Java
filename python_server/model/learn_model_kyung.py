@@ -19,7 +19,7 @@ from keras.layers import Dropout
 data_path = get_data_folder()
 
 def make_train_data():
-    user = load_wave_generator(data_path + "sound_data/0")
+    user = load_wave_generator_file("register.wav")
     noise = np.loadtxt(data_path + "noise_update.txt", delimiter=",")
 
     # make data_label
