@@ -16,22 +16,21 @@ from keras.layers import Dropout
 
 # 0 numbers directory files = user wav file
 # noise_data : 50000 MFCC data
+data_path = get_data_folder()
 
 def make_train_data():
-    user = load_wave_generator("D:/코딩/자바/soundCode/python_server/data/sound_data/0")
-    noise = np.loadtxt("D:/코딩/자바/soundCode/python_server/data/noise_update.txt", delimiter=",")
+    user = load_wave_generator(data_path + "sound_data/0")
+    noise = np.loadtxt(data_path + "noise_update.txt", delimiter=",")
 
     # make data_label
     user_label = np.full(len(user), 0)
     noise_label = np.full(len(noise), 1)
-
 
     x_train = np.concatenate((user, noise), axis = 0)
     y_train = np.concatenate((user_label, noise_label), axis = 0)
 
     print(x_train.shape)
     print(y_train.shape)
-
 
     # SMOTE part
 
@@ -58,6 +57,6 @@ def make_train_data():
 
     history = model.fit(x_smote, y_smote, epochs=5, batch_size=512)
 
-    model.save('D:/코딩/자바/soundCode/python_server/data/userModel/user.h5')
+    model.save(data_path + 'userModel/user.h5')
 
     print("save 완료!")

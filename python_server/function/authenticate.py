@@ -24,9 +24,13 @@ from function.recognize_kyung import *
 
 # 6
 # 보관은 어디에?
+from util.file_path import *
+
+data_path = get_data_folder()
+
 
 def secondary_authenticate(wav_file_name):
-    wav_file = "D:\\코딩\\자바\\soundCode\\python_server\\data\\" + wav_file_name + ".wav"
+    wav_file = data_path + wav_file_name + ".wav"
     reg_flag, reg_similarity = execute_recognize(wav_file)
     stt_flag, stt_similarity = execute_stt(wav_file)
     list = []

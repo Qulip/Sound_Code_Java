@@ -6,10 +6,11 @@ import tensorflow as tf
 import librosa
 from function.functions import *
 import os
+from util.file_path import *
 print(tf.__version__)
 print(os.getcwd())
 #  static
-model = tf.keras.models.load_model('D:/코딩/자바/soundCode/python_server/data/changjun_ver_models/2학기화자인식모델_최창준.h5')
+data_path = get_data_folder()
 rating_scale = 0.01
 right_standard = 0.8
 wrong_standard = 0.2
@@ -23,6 +24,7 @@ def sound_to_test_data(wav_file):
 
 
 def model_result(final_mfcc):
+    model = tf.keras.models.load_model(data_path + 'changjun_ver_models/2학기화자인식모델_최창준.h5')
     y_pred = model.predict(final_mfcc)
     zero_count = 0
     print(y_pred.shape)
@@ -45,5 +47,5 @@ def execute_recognize(wav_file):
     zero_percentage = model_result(final_mfcc)
     return calculate_result(zero_percentage)
 
-wav_file = "D:\\코딩\\자바\\soundCode\\python_server\\data\\" + "new.wav"
+wav_file = data_path + "new.wav"
 execute_recognize(wav_file)

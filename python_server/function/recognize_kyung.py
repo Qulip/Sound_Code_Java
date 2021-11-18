@@ -5,10 +5,10 @@
 import tensorflow as tf
 import librosa
 from function.functions import *
-
+from util.file_path import *
 print(tf.__version__)
 #  static
-# model = tf.keras.models.load_model('D:/코딩/자바/soundCode/python_server/data/userModel/user.h5')
+data_path = get_data_folder()
 rating_scale = 0.5
 right_standard = 0.9
 wrong_standard = 0.2
@@ -21,7 +21,7 @@ def sound_to_test_data(wav_file):
 
 
 def model_result(final_mfcc):
-    model = tf.keras.models.load_model('D:/코딩/자바/soundCode/python_server/data/userModel/user.h5')
+    model = tf.keras.models.load_model(data_path + 'userModel/user.h5')
     y_pred = model.predict(final_mfcc)
     zero_count = 0
 
@@ -43,5 +43,3 @@ def execute_recognize(wav_file):
     zero_percentage = model_result(final_mfcc)
     return calculate_result(zero_percentage)
 
-# wav_file = "D:\\코딩\\자바\\soundCode\\python_server\\data\\" + "감자고구마.wav"
-# execute_recognize(wav_file)

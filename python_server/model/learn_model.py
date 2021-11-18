@@ -11,10 +11,10 @@ from imblearn.over_sampling import *
 from model.generate_data import *
 from function.functions import make_data
 
+data_path = get_data_folder()
 
-chang = load_wave_generator("D:/코딩/자바/soundCode/python_server/data/sound_data/0")
-jae = load_wave_generator("D:/코딩/자바/soundCode/python_server/data/sound_data/1")
-# yu = load_wave_generator("D:/코딩/자바/soundCode/python_server/data/sound_data/2")
+chang = load_wave_generator(data_path+"sound_data/0")
+jae = load_wave_generator(data_path + "sound_data/1")
 yu = load_wave_generator_file("일권.wav")
 
 
@@ -68,6 +68,6 @@ model.compile(optimizer='rmsprop',
 
 history = model.fit(train, train_label, epochs=2, batch_size=512)
 
-model.save('2학기화자인식모델_유일권.h5')
+model.save(data_path + "changjun_ver_models" + '2학기화자인식모델_유일권.h5')
 
 print("save 완료!")
