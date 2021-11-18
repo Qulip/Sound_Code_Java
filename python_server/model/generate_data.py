@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import os
+from function.functions import *
 
 
 def load_wave_generator_file(wav):
@@ -20,11 +21,7 @@ def load_wave_generator_file(wav):
     else:
         data_mfcc = np.concatenate((data_mfcc, mfcc), axis=0)
 
-    update_data_mfcc = []
-
-    for i in range(len(data_mfcc)):
-        if data_mfcc[i][1] != 0:
-            update_data_mfcc.append(data_mfcc[i])
+    update_data_mfcc = remove_zero(data_mfcc)
 
     return np.array(update_data_mfcc)
 
@@ -53,11 +50,11 @@ def load_wave_generator(path):
             else:
                 data_mfcc = np.concatenate((data_mfcc, mfcc), axis=0)
 
-    update_data_mfcc = []
+    update_data_mfcc = remove_zero(data_mfcc)
 
-    for i in range(len(data_mfcc)):
-        if data_mfcc[i][1] != 0:
-            update_data_mfcc.append(data_mfcc[i])
+    # for i in range(len(data_mfcc)):
+    #     if data_mfcc[i][1] != 0:
+    #         update_data_mfcc.append(data_mfcc[i])
 
     return np.array(update_data_mfcc)
 

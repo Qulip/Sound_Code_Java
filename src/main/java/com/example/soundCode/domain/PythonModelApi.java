@@ -20,6 +20,7 @@ public class PythonModelApi {
             "애플과 갤럭시",
             "노트북 컴퓨터 키보드 마우스",
             "책상에서 공부하는 학생");
+
     public PythonModelApi(RestApi restApi) {
         this.restApi = restApi;
     }
@@ -40,7 +41,7 @@ public class PythonModelApi {
         for (String s : split) {
             System.out.println("s = " + s);
         }
-        AuthenticateDto authenticateDto = new AuthenticateDto(split[0], split[1], split[2].replace("]",""));
+        AuthenticateDto authenticateDto = new AuthenticateDto(split[0], split[1], split[2].replace("]", ""));
 
         return ResponseEntity.status(HttpStatus.OK).body(authenticateDto);
     }
@@ -55,4 +56,9 @@ public class PythonModelApi {
         return ResponseEntity.status(HttpStatus.OK).body(codeDto);
     }
 
+    @GetMapping("trainModel")
+    public ResponseEntity<String> trainModel() {
+        restApi.get("http://localhost:5000/trainModel");
+        return ResponseEntity.status(HttpStatus.OK).body("success");
+    }
 }

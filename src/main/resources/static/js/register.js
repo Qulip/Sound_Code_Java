@@ -4,8 +4,20 @@ function Register() {
         window.location.href = '/';
     //<p>ID = ${model.id}</p>
     };
+
+
+    const trainModel = async () => {
+        await fetch("/trainModel",{
+            method: "GET",
+            headers:{
+                'content-type': 'application/json'
+            }
+        })
+
+    };
     this.init = () => {
         test();
+        trainModel();
     };
 }
 

@@ -9,7 +9,7 @@ import os
 print(tf.__version__)
 print(os.getcwd())
 #  static
-model = tf.keras.models.load_model('model/2학기화자인식모델_최창준.h5')
+model = tf.keras.models.load_model('D:/코딩/자바/soundCode/python_server/data/changjun_ver_models/2학기화자인식모델_최창준.h5')
 rating_scale = 0.01
 right_standard = 0.8
 wrong_standard = 0.2
@@ -25,7 +25,8 @@ def sound_to_test_data(wav_file):
 def model_result(final_mfcc):
     y_pred = model.predict(final_mfcc)
     zero_count = 0
-
+    print(y_pred.shape)
+    print(y_pred[:3])
     for i in range(len(y_pred)):
         if y_pred[i] < rating_scale:
             zero_count += 1
@@ -44,4 +45,5 @@ def execute_recognize(wav_file):
     zero_percentage = model_result(final_mfcc)
     return calculate_result(zero_percentage)
 
-
+wav_file = "D:\\코딩\\자바\\soundCode\\python_server\\data\\" + "new.wav"
+execute_recognize(wav_file)

@@ -2,8 +2,8 @@
 
 # print(sys.path)
 from function.stt import *
-from function.recognize import *
-
+# from function.recognize import *
+from function.recognize_kyung import *
 # 1
 # 어떤 key값으로 할건지 (일정하지 않다면 어떻게 ?)
 # 많이 만들어 놓고 랜덤하게 전달하고 그 랜덤 값이 맞는지 체크!

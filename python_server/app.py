@@ -3,6 +3,7 @@
 
 from flask import Flask
 from function.authenticate import *
+from model.learn_model_kyung import *
 from flask_restx import Resource, Api
 
 
@@ -24,6 +25,10 @@ class Hello2(Resource):
     def get(self):
         return show_key_index()
 
+@api.route('/trainModel')
+class Hello3(Resource):
+    def get(self):
+        make_train_data()
 
 
 if __name__ == "__main__":
