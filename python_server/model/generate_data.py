@@ -11,7 +11,7 @@ from util.file_path import *
 
 def load_wave_generator_file(wav):
     path = get_data_folder()
-    y, sr = librosa.load(path + "/" + wav)
+    y, sr = librosa.load(path + wav)
     mfcc = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=45, hop_length=int(sr * 0.01),
                                 n_fft=int(sr * 0.02)).T
     data_mfcc = []
