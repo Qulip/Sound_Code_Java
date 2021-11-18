@@ -11,12 +11,12 @@ var audioContext //audio context to help us record
 
 var recordButton = document.getElementById("recordButton");
 var stopButton = document.getElementById("stopButton");
-var pauseButton = document.getElementById("pauseButton");
+//var pauseButton = document.getElementById("pauseButton");
 var submitButton = document.getElementById("submitButton");
 //add events to those 2 buttons
 recordButton.addEventListener("click", startRecording);
 stopButton.addEventListener("click", stopRecording);
-pauseButton.addEventListener("click", pauseRecording);
+//pauseButton.addEventListener("click", pauseRecording);
 submitButton.addEventListener("click", submitRecording);
 function startRecording() {
     console.log("recordButton clicked");
@@ -34,7 +34,7 @@ function startRecording() {
 
     recordButton.disabled = true;
     stopButton.disabled = false;
-    pauseButton.disabled = true;
+    //pauseButton.disabled = true;
 
     /*
         We're using the standard promise based getUserMedia()
@@ -76,10 +76,10 @@ function startRecording() {
         //enable the record button if getUserMedia() fails
         recordButton.disabled = false;
         stopButton.disabled = true;
-        pauseButton.disabled = true;
+        //pauseButton.disabled = true;
     });
 }
-
+/*
 function pauseRecording(){
     console.log("pauseButton clicked rec.recording=",rec.recording );
     if (rec.recording){
@@ -93,17 +93,17 @@ function pauseRecording(){
 
     }
 }
-
+*/
 function stopRecording() {
     console.log("stopButton clicked");
 
     //disable the stop button, enable the record too allow for new recordings
     stopButton.disabled = true;
     recordButton.disabled = false;
-    pauseButton.disabled = true;
+    //pauseButton.disabled = true;
 
     //reset button just in case the recording is stopped while paused
-    pauseButton.innerHTML="Pause";
+    //pauseButton.innerHTML="Pause";
 
     //tell the recorder to stop the recording
     rec.stop();
@@ -119,10 +119,12 @@ function createDownloadLink(blob) {
     console.log("blob : ", blob);
     var url = URL.createObjectURL(blob);
     console.log("url : ", url);
+    recordingsList.innerHTML="";
 
     var au = document.createElement('audio');
-    var li = document.createElement('li');
-    var link = document.createElement('a');
+    //var li = document.createElement('span');
+    //var link = document.createElement('a');
+    //var p = document.createElement('p');
     // var path = "D:\\코딩\\자바\\soundCode\\data\\";
     //name of .wav file to use during upload and download (without extendion)
     var filename = "User";
@@ -132,18 +134,19 @@ function createDownloadLink(blob) {
     au.src = url;
 
     //save to disk link
-    link.href = url;
-    link.download = filename + ".wav"; //download forces the browser to donwload the file using the  filename
-    link.innerHTML = "Save to disk";
+    //link.href = url;
+    //link.download = filename + ".wav"; //download forces the browser to donwload the file using the  filename
+    //link.innerHTML = "Save to disk";
 
     //add the new audio element to li
-    li.appendChild(au);
+    recordingsList.appendChild(au);
+    //li.appendChild(p);
 
     //add the filename to the li
-    li.appendChild(document.createTextNode(filename + ".wav "))
+    //li.appendChild(document.createTextNode(filename + ".wav "))
 
     //add the save to disk link to li
-    li.appendChild(link);
+    //li.appendChild(link);
 
     //upload link
     var upload = document.getElementById("submitButton");
@@ -177,11 +180,11 @@ function createDownloadLink(blob) {
         // xhr.open("POST","upload.php",true);
         // xhr.send(fd);
     });
-    li.appendChild(document.createTextNode(" "))//add a space in between
-    li.appendChild(upload)//add the upload link to li
+    //recordingsList.appendChild(document.createTextNode(" "))//add a space in between
+    //recordingsList.appendChild(upload)//add the upload link to li
 
     //add the li element to the ol
-    recordingsList.appendChild(li);
+    //recordingsList.appendChild(li);
 
 }
 

@@ -7,7 +7,6 @@ a {
     color: black;
     text-align: center;
 }
-
 .main_image {
     width: 40rem;
     height: 30rem;
@@ -16,6 +15,17 @@ a {
 }
 
 .main_logo {
-    margin: 5rem;
-    align-self: center;
+    margin: 5rem 5rem;
+}
+
+.main_page{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#formats{
+    margin-top: 5px;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
 }

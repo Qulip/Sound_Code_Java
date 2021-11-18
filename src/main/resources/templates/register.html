@@ -3,7 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <title>SoundCode</title>
+        <link rel="stylesheet" type="text/css" href="styles/main.css">
         <link rel="stylesheet"  type="text/css" href="styles/register.css">
+        <link rel="stylesheet"  type="text/css" href="styles/nav.css">
     </head>
     <body>
     <div class="container">
@@ -20,7 +22,7 @@
         </ul>
         <div class="main_page">
             <div class="main_logo">
-                <img src="image/soundcode.png">
+                <img src="image/soundcode.png"class="main_image">
             </div>
 
             <form method="POST" class="joinForm">
@@ -45,12 +47,11 @@
                     문자열 : <span id="text">****</span></div>
                 <div class="record">
                     <div id="controls">
-                        <button id="recordButton">Record</button>
-                        <button id="pauseButton" disabled>Pause</button>
-                        <button id="stopButton" disabled>Stop</button>
+                        <button class="control_btn" id="recordButton">Record</button>
+                        <button class="control_btn" id="stopButton" disabled>Stop</button>
                     </div>
                     <div id="formats">Record 버튼을 누르고 위 텍스트를 녹음한 뒤 stop을 누르세요!</div>
-                    <ol id="recordingsList"></ol>
+                    <div id="recordingsList"></div>
                     <!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
                     <!--                <button type="button" id="submitButton" onclick="location.href='http://localhost:8080/test?name=chang'">submit</button>-->
 

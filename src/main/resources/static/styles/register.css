@@ -1,86 +1,41 @@
-body {
-  margin: 0;
-}
-a {
-  font-weight: bold;
-  text-decoration: none;
-  color: black;
-  text-align: center;
-}
-img {
-  width: 40rem;
-  height: 30rem;
-}
-.container{
-  display: flex;
-  flex-direction: column;
-}
-.nav-item {
-  padding: 15px;
-  cursor: pointer;
+.joinForm {
+  margin: 2.5rem 5.3rem 0 0;
+  width:25rem;
+  height:49rem;
+  background-color:gainsboro;
+  text-align:center;
+  border-radius: 15px;
+  font-family: 'Nanum Gothic', sans-serif;
 }
 
-.nav {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 70px;
-  margin: 0;
-  padding: 0;
-  bottom: 0;
-  background-color: #337ab7;
-  list-style-type: none;
-  vertical-align: middle;
-  justify-content: center;
-}
-
-.main_logo {
-  margin: 5rem 5rem;
-}
-
-.main_page{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-  .joinForm {
-    margin: 2.5rem 5rem 0 0;
-    width:25rem;
-    height:50rem;
-    background-color:gainsboro;
-    text-align:center;
-    border-radius: 15px;
-  }
-
-  .joinForm h2 {
+.joinForm h2 {
   text-align: center;
   margin: 30px;
-  }
+}
 
-  .test_text {
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
-  }
+.test_text {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-  .textForm {
+.textForm {
   border-bottom: 2px solid #adadad;
   margin: 30px;
   padding: 10px 10px;
-  }
+}
 
-  .reg {
-  width: 100%;
-  border:none;
-  outline:none;
-  color: #636e72;
-  font-size:16px;
-  height:25px;
-  background: none;
-  }
+.reg {
+width: 100%;
+border:none;
+outline:none;
+color: #636e72;
+font-size:16px;
+height:25px;
+background: none;
+}
 
-  .btn {
+.btn {
   position:relative;
   left:40%;
   transform: translateX(-50%);
@@ -96,21 +51,46 @@ img {
   cursor:pointer;
   transition: 0.4s;
   display:inline;
-  }
+}
 
-  .btn:hover {
+.btn:hover {
   background-position: right;
-  }
+}
 
-  .img_png{
-    width: 100px;
-    height : 100px;  
-  }
-  .btn_mic{
-    border : 0ch;
-    border-radius: 50px;
-    background-color: gainsboro;
-  }
-  .btn_mic:hover{
-    background-color: #ffffff;
-  }
+.img_png{
+  width: 100px;
+  height : 100px;
+}
+#controls{
+  display: flex;
+  margin-top: 1rem;
+  justify-content: center;
+}
+.control_btn{
+  flex-basis: 7rem;
+  height: 3rem;
+  border: none;
+  background: #59b1eb;
+  border-radius: 0.5rem;
+  margin: 0 1rem;
+  box-shadow: inset 0 -0.15rem 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-weight: bold;
+  font-size: 1.05rem;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+.control_btn:hover, .control_btn:focus{
+  background: #c72d1c;
+}
+.control_btn:disabled {
+  pointer-events: none;
+  background: lightgray;
+}
+#recordingsList{
+  height: 3.6rem;
+}
