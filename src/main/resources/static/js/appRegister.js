@@ -17,7 +17,7 @@ var submitButton = document.getElementById("submitButton");
 recordButton.addEventListener("click", startRecording);
 stopButton.addEventListener("click", stopRecording);
 //pauseButton.addEventListener("click", pauseRecording);
-submitButton.addEventListener("click", submitRecording);
+// submitButton.addEventListener("click", submitRecording);
 function startRecording() {
     console.log("recordButton clicked");
 
