@@ -1,30 +1,8 @@
-body {
-    margin: 0;
-}
-a {
-    font-weight: bold;
-    text-decoration: none;
-    color: black;
-    text-align: center;
-}
 p {
   margin-top: 1rem;
 }
-a:hover {
-  color:#23527c;
-}
-a:visited {
-  color: #8d75a3;
-}
-img {
-    width: 40rem;
-    height: 30rem;
-}
 
 h1 {
-	text-decoration: underline red;
-	text-decoration-thickness: 3px;
-	text-underline-offset: 6px;
 	font-size: 220%;
 	font-weight: bold;
 }
@@ -36,65 +14,64 @@ h2 {
 	text-transform: uppercase;
 }
 
-red {
-	color: red;
+.record{
+    margin: 6rem 5rem 0 0;
+    width:25rem;
+    height:25rem;
+    background-color:gainsboro;
+    text-align:center;
+    border-radius: 15px;
+    font-family: 'Nanum Gothic', sans-serif;
 }
 
 #controls {
-  display: flex;
-  margin-top: 2rem;
-  max-width: 28em;
+    display: flex;
+    margin-top: 2rem;
+    justify-content: center;
 }
 
-button {
-  flex-grow: 1;
-  height: 3.5rem;
-  min-width: 2rem;
-  border: none;
-  border-radius: 0.15rem;
-  background: #ed341d;
-  margin-left: 2px;
-  box-shadow: inset 0 -0.15rem 0 rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color:#ffffff;
-  font-weight: bold;
-  font-size: 1.5rem;
+.control_btn {
+    flex-basis: 7rem;
+    height: 3rem;
+    border: none;
+    background: #59b1eb;
+    border-radius: 0.5rem;
+    margin: 0 1rem;
+    box-shadow: inset 0 -0.15rem 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-weight: bold;
+    font-size: 1.05rem;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+.control_btn:hover, .control_btn:focus{
+    background: #c72d1c;
+
 }
 
-/*button:hover, button:focus {*/
-/*  outline: none;*/
-/*  background: #c72d1c;*/
-/*}*/
+.control_btn::-moz-focus-inner {
+  border: 0;
+}
 
-/*button::-moz-focus-inner {*/
-/*  border: 0;*/
-/*}*/
+.control_btn:active {
+  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);
+  line-height: 3rem;
+}
 
-/*button:active {*/
-/*  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);*/
-/*  line-height: 3rem;*/
-/*}*/
-
-/*button:disabled {*/
-/*  pointer-events: none;*/
-/*  background: lightgray;*/
-/*}*/
-/*button:first-child {*/
-/*  margin-left: 0;*/
-/*}*/
+.control_btn:disabled {
+  pointer-events: none;
+  background: lightgray;
+}
 
 audio {
-  display: block;
-  width: 100%;
-  margin-top: 0.2rem;
-}
-
-li {
-  list-style: none;
-  margin-bottom: 1rem;
+    display: inline-block;
+    width: 80%;
+    margin-top: 0.2rem;
+    margin-left: 0.2rem;
+    text-align: center;
 }
 
 #formats {
@@ -102,48 +79,50 @@ li {
   font-size: 80%;
 }
 
-#recordingsList{
-	max-width: 28em;
-}
-
-.container {
-    margin-left: 0;
-    margin-right: 0;
-    padding: 0;
+#recordingsList{;
     display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-.nav-item {
-    padding: 15px;
-    cursor: pointer;
-}
-
-.nav {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 70px;
-    margin: 0;
-    padding: 0;
-    bottom: 0;
-    background-color: #337ab7;
-    list-style-type: none;
-    vertical-align: middle;
+	width: 25rem;
+    height: 4rem;
     justify-content: center;
 }
 
-.main_logo {
-    margin: 5rem 5rem;
-}
-.main_page{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+#recordingsList .control_btn{
+    margin-top: 0.4rem;
 }
 
 .result {
     /*margin-left: 50rem;*/
     /*align-items: center;*/
     align-self: center;
+    background-color:gainsboro;
+    text-align:center;
+    border-radius: 15px;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+.result_item{
+    font-family: 'Nanum Gothic', sans-serif;
+    padding :  0.25rem 1rem;
+}
+
+#submitButton{
+    position:relative;
+    left:40%;
+    transform: translateX(-50%);
+    margin-top: 40px;
+    width:80%;
+    height:40px;
+    background: linear-gradient(125deg,#81ecec,#6c5ce7,#81ecec);
+    background-position: left;
+    background-size: 200%;
+    color:white;
+    font-weight: bold;
+    border:none;
+    cursor:pointer;
+    transition: 0.4s;
+    display:inline;
+}
+
+#submitButton:hover {
+    background-position: right;
 }
