@@ -208,7 +208,12 @@ async function submitRecording() {
 		}).then(data => data.json())
 			.then(data => {
 				console.log(data);
-				$pass.innerHTML = `결과 : ${data.pass}`;
+
+				if (`${data.pass}` == 'true') {
+					$pass.innerHTML = `결과 : 2차 인증 성공!!`;
+				} else {
+					$pass.innerHTML = `결과 : 2차 인증 실패...`;
+				}
 				$recognize.innerHTML = `성문 유사성 : ${data.recognize}%`;
 				$stt.innerHTML = `텍스트 유사성 : ${data.stt}%`;
 		});
